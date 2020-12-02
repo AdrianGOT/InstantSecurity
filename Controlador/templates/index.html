@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+
+{% block container %}
+    <div class="container">
+        {% if c %}
+            <div class="row">
+                <div class="col-12">
+                    <div class="container pt-5">
+                        <div class="d-flex justify-content-around  flex-wrap">
+                            
+                                {% for producto in productos %}
+
+                                    <div class="card mb-3" style="width: 18rem;">
+                                       
+                                        <div class="card-body">
+                                        <h5 class="card-title text-center"> {{ producto['name'] }}</h5>
+                                        <p class="card-text"> {{ producto['description'] }}</p>
+                                        <p class="card-text">Cantidad disponible: {{ producto['amount'] }}</p>
+                                        <p class="card-text">Precio: {{ producto['price'] }}</p>
+                                        
+                                        <form action="{{ url_for('facturacion', productName = producto['name'] ) }}" method="get">
+                                            <button type="submit"  class="btn btn-primary btn-block">Obtener</button>
+                                        </form>
+                                        
+                                        </div>  
+                                    </div>
+                                    
+                                {% endfor %}
+                        
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="row">
+                <div class="col-8">
+                    <div class="container pt-5">
+                        <div class="d-flex justify-content-around  flex-wrap">
+                            
+                                {% for producto in productos %}
+
+                                    <div class="card mb-3" style="width: 18rem;">
+                                        <div class="card-body">
+                                        <h5 class="card-title text-center"> {{ producto['name'] }}</h5>
+                                        <p class="card-text"> {{ producto['description'] }}</p>
+                                        <p class="card-text">Cantidad disponible: {{ producto['amount'] }}</p>
+                                        <p class="card-text">Precio: {{ producto['price'] }}</p>
+                                        <a href="#" class="btn btn-primary btn-block">Obtener</a>
+                                        </div>  
+                                    </div>
+                                    
+                                {% endfor %}
+                        
+                        </div>                    
+                    </div>
+
+                </div>
+                <div class="col-4"> 
+                    <div class="mt-5">
+                        <h5 class="text-center">Para poder adquirir alguno de nuestros productos o contratar algunos de nuestros servicios debe registrarse primero</h5>
+                        <a href="{{ url_for('registro') }}" class="btn btn-primary btn-block mt-5">Registrarse</a>
+                        <a href="{{ url_for('inicioSesion') }}" class="btn btn-primary btn-block mt-5">Iniciar sesión</a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

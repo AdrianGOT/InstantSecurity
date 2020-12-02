@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block container %}
+<div class="container">
+    <div class="justify-content-md-center mt-5">    
+        <div class="card justify-content-md-center">
+            <h3 class="text-center mt-4" >Iniciar sesión</h3>
+            
+            <div class="p-5">
+                <form action="{{ url_for('inicioSesion') }}" method="POST">
+                    <div class="form-group">    
+                        <input type="text" name=CC id=cuarto placeholder="Cedula de ciudadania" class="form-control">
+                    </div>
+                    
+                    <input type="submit"  class="btn btn-success btn-block" value="Iniciar sesión">
+                    <a href="{{ url_for('registro') }}" class="btn btn-secondary btn-block" >Registrarse</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

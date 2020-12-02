@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block container %}
+    <div class="container">
+        <div class="justify-content-md-center mt-5">    
+            <div class="card">
+                <h3 class="text-center mt-4">Actualizar datos</h3>
+                <div class="p-5">
+                    <form action="{{ url_for('editar_cuenta', cc=info['CC']) }}" method="POST">
+                        <div class="form-group">
+                            <input type="text" name=nombre  placeholder="Nombre: {{info['nombre']}}" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name=apellido  placeholder="Apellido: {{info['apellido']}}" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name=email  placeholder="Correo:{{ info['email']}}" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name=celular placeholder="Celular: {{ info['celular']}}" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name=direccion placeholder="Dirección: {{ info['direccion']}}" class="form-control">
+                        </div>
+                        <input type="submit"  class="btn btn-success btn-block" value="Actualizar">
+                        
+                        <a href="{{ url_for('perfil') }}" class="btn btn-secondary btn-block" >Atras</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

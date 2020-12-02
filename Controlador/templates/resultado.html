@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block container %}
+    <div class="container">
+        <div class="mt-5" >
+            <div class="d-flex justify-content-center">
+                <div class="p-3 border border-dark rounded ">
+                    <div class="d-flex justify-content-center mt-1 mb-4">
+                        <h5>PEDIDO REALIZADO</h5>
+                    </div>
+                    <p>Se le enviará un correo confirmando el proceso.</p> 
+                    <p>El pago se realizará cuando el producto sea entregado</p>
+                    <p>Pude verificar su factura en su perfil. La encontrará con el suguiente número de factura <b>{{ num }}</b></p>
+                    <a class="btn btn-primary btn-block mt-5" href="{{ url_for('index') }}">Finalizar</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
